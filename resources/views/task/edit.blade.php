@@ -5,11 +5,11 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Tasks</div>
+                <div class="panel-heading">Update Task</div>
 
                 <div class="panel-body">
                     
-                    {!! Form::open(array('route'=>'task.store')) !!}
+                    {!! Form::model($task,array('route'=>['task.update',$task->id],'method'=>'PUT')) !!}
                         <div class="form-group">
                             {!! Form::label('title','Enter Title') !!}
                             {!! Form::text('title',null,['class'=>'form-control']) !!}
@@ -19,7 +19,7 @@
                             {!! Form::textarea('body',null,['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::button('Create',['type'=>'submit','class'=>'btn btn-primary']) !!} 
+                            {!! Form::button('Update',['type'=>'submit','class'=>'btn btn-primary']) !!} 
                          </div>
                     {!! Form::close() !!}
 

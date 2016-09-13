@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Task;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
+use App\Http\Requests\TaskRequest;
 
 class TaskController extends Controller
 {
@@ -36,9 +36,11 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
-        //
+        Task::create($request->all());
+        return redirect()->route('task.index')->with('message','item has been added successfully');
+
     }
 
     /**
@@ -58,9 +60,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Task $task)
     {
-        //
+       return view('task.edit',compact('task'));
     }
 
     /**
@@ -70,9 +72,10 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TaskRequest $request, Task $task)
     {
-        //
+        $task->update($request->all());
+        return redirect()->route('task.index')->with('message','Item has been updated successfully');
     }
 
     /**
@@ -81,8 +84,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Task $task)
     {
-        //
+        $task->delete();
+        return redirect()->route('task.index')->with('message','Item has been deleted successfully');
     }
 }

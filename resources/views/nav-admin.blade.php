@@ -56,7 +56,7 @@
             <li><a href="/students-instructors" id="nav-links">Students/Instructors</a></li>
             <li><a href="/news" id="nav-links">Add News</a></li>
             <li><a href="/events" id="nav-links">Add Events</a></li>
-            <li><a href="/add-class" id="nav-links">Add Class</a></li>
+            <li><a href="/task" id="nav-links">Add Class</a></li>
             <li><a href="/email" id="nav-links">Send Email</a></li>
             <!-- User Account: style can be found in dropdown.less -->
             <li><img src= {{ asset("/images/admin.jpg")}} class="user-image" alt="Admin Image" id="admin-image"></li>

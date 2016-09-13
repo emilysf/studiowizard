@@ -11,16 +11,28 @@
                     
                     {!! Form::open(array('route'=>'task.store')) !!}
                         <div class="form-group">
-                            {!! Form::label('title','Enter Title') !!}
-                            {!! Form::text('title',null,['class'=>'form-control']) !!}
+                            {!! Form::label('className','Enter Class Name') !!}
+                            {!! Form::text('className',null,['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
-                            {!! Form::label('body','Enter Body') !!}
-                            {!! Form::textarea('body',null,['class'=>'form-control']) !!}
+                            {!! Form::label('classInstructor','Enter Class Instructor') !!}
+                            {!! Form::text('classInstructor',null,['class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('classTime','Enter Class Time') !!}
+                            {!! Form::text('classTime',null,['class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('classDay','Enter Class Weekday') !!}
+                            {!! Form::text('classDay',null,['class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('classLevel','Enter Class Level') !!}
+                            {!! Form::text('classLevel',null,['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::button('Create',['type'=>'submit','class'=>'btn btn-primary']) !!} 
-                         </div>
+                        </div>
                     {!! Form::close() !!}
 
                 </div>

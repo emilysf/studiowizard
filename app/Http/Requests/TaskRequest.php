@@ -24,8 +24,11 @@ class TaskRequest extends Request
     public function rules()
     {
         return [
-            'title' => 'required',
-            'body' => 'required'
+            'className' => 'required',
+            'classInstructor' => 'required',
+            'classTime' => 'required',
+            'classDay' => 'required',
+            'classLevel' => 'required'
         ];
     }
 }

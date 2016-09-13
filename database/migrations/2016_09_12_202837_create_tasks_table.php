@@ -14,9 +14,11 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('body');
-            $table->timestamps();
+            $table->string('className');
+            $table->string('classInstructor');
+            $table->string('classTime');
+            $table->string('classDay');
+            $table->string('classLevel');
         });
     }
 
@@ -27,6 +29,6 @@ class CreateTasksTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tasks');
+        Schema::drop('classes');
     }
 }

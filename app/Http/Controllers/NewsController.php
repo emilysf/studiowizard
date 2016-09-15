@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
 use Illuminate\Http\Request;
+use App\News;
+use App\Http\Requests\NewsRequest;
 
-use App\Http\Requests\TaskRequest;
-
-class TaskController extends Controller
+class NewsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
-        return view('task.index', compact('tasks'));
-
+        $news = News::all();
+        return view('news.index',compact('news'));
     }
 
     /**
@@ -27,8 +25,8 @@ class TaskController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    { 
-        return view('task.create');
+    {
+        return view('news.create');
     }
 
     /**
@@ -37,11 +35,10 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TaskRequest $request)
+    public function store(NewsRequest $request)
     {
-        Task::create($request->all());
-        return redirect()->route('task.index')->with('message','Class has been added successfully');
-
+        News::create($request->all());
+        return redirect()->route('news.index')->with('message','News has been added successfully');
     }
 
     /**
@@ -61,10 +58,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $task)
+    public function edit($id)
     {
-       // $task = Task::where("id", "=", $id);
-       return view('task.edit',compact('task'));
+        //
     }
 
     /**
@@ -74,10 +70,10 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TaskRequest $request, Task $task)
+    public function update(NewsRequest $request, News $news)
     {
-        $task->update($request->all());
-        return redirect()->route('task.index')->with('message','Class has been updated successfully');
+        $news->update($request->all());
+        return redirect()->route('news.index')->with('message','News has been updated successfully');
     }
 
     /**
@@ -86,9 +82,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task)
+    public function destroy(News $news)
     {
-        $task->delete();
-        return redirect()->route('task.index')->with('message','Class has been deleted successfully');
+        $news->delete();
+        return redirect()->route('news.index')->with('message','News has been deleted successfully');
     }
 }

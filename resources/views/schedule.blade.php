@@ -7,18 +7,21 @@
 		margin-top: 3%;
 	}
 	form{
-    	border-radius:25px;
-  	}
-  	.box {
-    	border:2px solid #000059 !important;
-  	}
+    border-radius:25px;
+  }
+  .box {
+    border:2px solid #000059 !important;
+  }
+  td, th {
+    padding-left: 20px !important;
+  }
 </style>
 
 <div class="row">
         <div class="col-xs-11">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Responsive Hover Table</h3>
+              <h3 class="box-title">Class Schedule</h3>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -35,104 +38,16 @@
                   <th>Day of the Week</th>
                   <th>Time</th>
                   <th>Level</th>
-                  <th>Class Description</th>
                 </tr>
-                <tr>
-                  <td>Modern</td>
-                  <td>Jane Doe</td>
-                  <td>Tuesday</td>
-                  <td>5:30PM - 6:30PM</td>
-                  <td>Level 3</td>
-                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                </tr>
-                <tr>
-                  <td>Modern</td>
-                  <td>Jane Doe</td>
-                  <td>Monday</td>
-                  <td>5:30PM - 6:30PM</td>
-                  <td>Level 3</td>
-                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                </tr>
-                <tr>
-                  <td>Modern</td>
-                  <td>Jane Doe</td>
-                  <td>Monday</td>
-                  <td>5:30PM - 6:30PM</td>
-                  <td>Level 3</td>
-                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                </tr>
-                <tr>
-                  <td>Modern</td>
-                  <td>Jane Doe</td>
-                  <td>Monday</td>
-                  <td>5:30PM - 6:30PM</td>
-                  <td>Level 3</td>
-                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                </tr>
-                <tr>
-                  <td>Modern</td>
-                  <td>Jane Doe</td>
-                  <td>Tuesday</td>
-                  <td>5:30PM - 6:30PM</td>
-                  <td>Level 3</td>
-                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                </tr>
-                <tr>
-                  <td>Modern</td>
-                  <td>Jane Doe</td>
-                  <td>Tuesday</td>
-                  <td>5:30PM - 6:30PM</td>
-                  <td>Level 3</td>
-                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                </tr>
-                <tr>
-                  <td>Modern</td>
-                  <td>Jane Doe</td>
-                  <td>Tuesday</td>
-                  <td>5:30PM - 6:30PM</td>
-                  <td>Level 3</td>
-                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                </tr>
-                <tr>
-                  <td>Modern</td>
-                  <td>Jane Doe</td>
-                  <td>Tuesday</td>
-                  <td>5:30PM - 6:30PM</td>
-                  <td>Level 3</td>
-                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                </tr>
-                <tr>
-                  <td>Modern</td>
-                  <td>Jane Doe</td>
-                  <td>Tuesday</td>
-                  <td>5:30PM - 6:30PM</td>
-                  <td>Level 3</td>
-                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                </tr>
-                <tr>
-                  <td>Modern</td>
-                  <td>Jane Doe</td>
-                  <td>Tuesday</td>
-                  <td>5:30PM - 6:30PM</td>
-                  <td>Level 3</td>
-                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                </tr>
-                <tr>
-                  <td>Modern</td>
-                  <td>Jane Doe</td>
-                  <td>Tuesday</td>
-                  <td>5:30PM - 6:30PM</td>
-                  <td>Level 3</td>
-                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                </tr>
-                <tr>
-                  <td>Modern</td>
-                  <td>Jane Doe</td>
-                  <td>Tuesday</td>
-                  <td>5:30PM - 6:30PM</td>
-                  <td>Level 3</td>
-                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</td>
-                </tr>
+                @foreach($tasks as $task)
+                    <tr>
+                      <td>{{ $task->className }}</td>
+                      <td>{{ $task->classInstructor }}</td>
+                      <td>{{ $task->classTime }}</td>
+                      <td>{{ $task->classDay }}</td>
+                      <td>{{ $task->classLevel }}</td>
+                    </tr>
+                @endforeach
               </table>
             </div>
             <!-- /.box-body -->

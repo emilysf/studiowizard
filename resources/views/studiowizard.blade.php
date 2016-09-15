@@ -8,11 +8,12 @@
     z-index:12;
     top:55%;
     right:0;
-    width:35%;
-    height:35%;
+    width:auto;
+    height:auto;
     margin-right:3%;
     text-align:center;
     border:2px solid #000059;
+    padding:5px 5px 10px 5px;
   }
   .box-body {
     background-color: #000059;
@@ -29,8 +30,7 @@
   }
   #news, #events {
     border:2px solid #000059;
-    height:300px;
-    margin-left: 11%;
+    height:auto;
     margin-bottom: 5%;
     background-color: #fff;
   }
@@ -83,11 +83,21 @@
 
   <div class="container" id="news-events">
     <div class="row">
-      <div class="col-md-4" id="news">
+      <div class="col-md-6" id="news">
         <h2>Studio News</h2>
+          @foreach($news as $news)
+              <h4>{{ $news->newsTitle }}</h4>
+              <p>{{ $news->newsDescription }}</p>
+          @endforeach
       </div>
-      <div class="col-md-4" id="events">
+      <div class="col-md-6" id="events">
         <h2>Local Events</h2>
+          @foreach($events as $events)
+              <h4>{{ $events->eventTitle }}</h4>
+              <p>{{ $events->eventDate }}</p>
+              <p>{{ $events->eventTime }}</p>
+              <p>{{ $events->eventDescription }}</p>
+          @endforeach
       </div>
     </div>
   </div>

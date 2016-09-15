@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Task;
 use Illuminate\Http\Request;
+use App\Events;
+use App\Http\Requests\EventsRequest;
 
-use App\Http\Requests\TaskRequest;
-
-class TaskController extends Controller
+class EventsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +15,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
-        return view('task.index', compact('tasks'));
-
+        $events = Events::all();
+        return view('events.index',compact('events'));
     }
 
     /**
@@ -27,8 +25,8 @@ class TaskController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    { 
-        return view('task.create');
+    {
+        return view('events.create');
     }
 
     /**
@@ -37,11 +35,10 @@ class TaskController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TaskRequest $request)
+    public function store(EventsRequest $request)
     {
-        Task::create($request->all());
-        return redirect()->route('task.index')->with('message','Class has been added successfully');
-
+        Events::create($request->all());
+        return redirect()->route('events.index')->with('message','Event has been added successfully');
     }
 
     /**
@@ -61,10 +58,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $task)
+    public function edit(Events $events)
     {
-       // $task = Task::where("id", "=", $id);
-       return view('task.edit',compact('task'));
+       return view('events.edit',compact('events'));
     }
 
     /**
@@ -74,10 +70,10 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(TaskRequest $request, Task $task)
+    public function update(EventsRequest $request, Events $events)
     {
-        $task->update($request->all());
-        return redirect()->route('task.index')->with('message','Class has been updated successfully');
+        $events->update($request->all());
+        return redirect()->route('events.index')->with('message','Event has been updated successfully');
     }
 
     /**
@@ -86,9 +82,9 @@ class TaskController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task)
+    public function destroy(Events $events)
     {
-        $task->delete();
-        return redirect()->route('task.index')->with('message','Class has been deleted successfully');
+        $events->delete();
+        return redirect()->route('events.index')->with('message','Event has been deleted successfully');
     }
 }

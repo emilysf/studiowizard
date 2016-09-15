@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use App\News;
+use App\Events;
+use App\Http\Requests\NewsRequest;
 
 class StudiowizardController extends Controller
 {
-    public function index() {
-    	return view('studiowizard');
+    public function index(News $news, Events $events) {
+    	$news = News::all();
+    	$events = Events::all();
+    	return view('studiowizard', compact('news'), compact('events'));
     }
 }

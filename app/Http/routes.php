@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('studiowizard');
 });
 
+Route::resource('events', 'EventsController');
+Route::resource('news', 'NewsController');
 Route::resource('task', 'TaskController');
 Route::get('/schedule', 'ScheduleController@index');
 Route::get('/signup', 'SignupController@index');

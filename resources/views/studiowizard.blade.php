@@ -85,19 +85,11 @@
     <div class="row">
       <div class="col-md-6" id="news">
         <h2>Studio News</h2>
-          @foreach($news as $news)
-              <h4>{{ $news->newsTitle }}</h4>
-              <p>{{ $news->newsDescription }}</p>
-          @endforeach
+          
       </div>
       <div class="col-md-6" id="events">
         <h2>Local Events</h2>
-          @foreach($events as $events)
-              <h4>{{ $events->eventTitle }}</h4>
-              <p>{{ $events->eventDate }}</p>
-              <p>{{ $events->eventTime }}</p>
-              <p>{{ $events->eventDescription }}</p>
-          @endforeach
+          
       </div>
     </div>
   </div>

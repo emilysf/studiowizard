@@ -33,33 +33,88 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form method="post" action="/signup" role="form">
+
+            <form role="form" method="POST" action="{{ url('/register') }}">
+                        {{ csrf_field() }}
+
+            
               <div class="box-body">
-                <div class="form-group">
-                  <label for="name">Full Name</label>
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Enter full name">
+
+                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                    <label for="name">Name</label>
+                      <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}">
+
+                      @if ($errors->has('name'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('name') }}</strong>
+                          </span>
+                      @endif
                 </div>
-              	<div class="form-group">
-                  <label for="age">Age</label>
-                  <input type="text" name="age" class="form-control" id="age" placeholder="Enter age">
+
+              	<div class="form-group{{ $errors->has('age') ? ' has-error' : '' }}">
+                    <label for="name">Age</label>
+                      <input id="age" type="text" class="form-control" name="age" value="{{ old('age') }}">
+
+                      @if ($errors->has('age'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('age') }}</strong>
+                          </span>
+                      @endif
                 </div>
-                <div class="form-group">
-                  <label for="phone">Phone Number</label>
-                  <input type="text" name="phone" class="form-control" id="phone" placeholder="Enter phone number">
+
+                <div class="form-group{{ $errors->has('phonenumber') ? ' has-error' : '' }}">
+                    <label for="phonenumber">Phonenumber</label>
+                      <input id="phonenumber" type="text" class="form-control" name="phonenumber" value="{{ old('phonenumber') }}">
+
+                      @if ($errors->has('phonenumber'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('phonenumber') }}</strong>
+                          </span>
+                      @endif
                 </div>
-                <div class="form-group">
-                  <label for="email">Email address</label>
-                  <input type="email" name="email" class="form-control" id="email" placeholder="Enter email">
+
+                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <label for="email">E-Mail Address</label>
+                      <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+
+                      @if ($errors->has('email'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('email') }}</strong>
+                          </span>
+                      @endif
                 </div>
-                <div class="form-group">
-                  <label for="userpassword">Password</label>
-                  <input type="password" name="password" class="form-control" id="password" placeholder="Enter password">
+
+                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                    <label for="password">Password</label>
+                        <input id="password" type="password" class="form-control" name="password">
+
+                        @if ($errors->has('password'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('password') }}</strong>
+                            </span>
+                        @endif
                 </div>
+
+                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                    <label for="password-confirm">Confirm Password</label>
+                      <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+
+                      @if ($errors->has('password_confirmation'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('password_confirmation') }}</strong>
+                          </span>
+                      @endif
+                </div>
+
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <a href="/signin"><input type="submit" class="btn btn-primary"></a>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-btn fa-user"></i> Register
+                    </button>
+                </div>
               </div>
             </form>
           </div>

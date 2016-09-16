@@ -15,8 +15,11 @@
     background-color: #fff !important
   }
   #nav-links:hover {
-    background-color: #000059 !important;
     color:#d3d3d3 !important;
+    background-color: #000059 !important;
+  }
+  #nav-drops {
+    color:#000059;
   }
   .navbar-brand {
     background-color: #fff;
@@ -44,8 +47,22 @@
           <ul class="nav navbar-nav">
             <li><a href="/schedule" id="nav-links">Class Schedule</a></li>
             <li><a href="/instructors" id="nav-links">Instructors</a></li>
-            <li><a href="/signin" id="nav-links">Sign-In</a></li>
-            <li><a href="/signup" id="nav-links">Register</a></li>
+            <!-- Authentication Links -->
+            @if (Auth::guest())
+                <li><a href="{{ url('/signin') }}" id="nav-links">Sign-In</a></li>
+                <li><a href="{{ url('/register') }}" id="nav-links">Register</a></li>
+            @else
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="nav-links" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ url('/profile') }}" id="nav-drops">Profile</a></li>
+                        <li><a href="{{ url('/logout') }}" id="nav-drops">Logout</a></li>
+                    </ul>
+                </li>
+            @endif
           </ul>
         </div>
         <!-- /.navbar-collapse -->

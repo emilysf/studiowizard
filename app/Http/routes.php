@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('studiowizard');
-});
 
 Route::resource('events', 'EventsController');
 Route::resource('news', 'NewsController');
@@ -25,9 +22,30 @@ Route::get('/signin', 'SigninController@index');
 Route::get('/instructors', 'InstructorController@index');
 Route::get('/admin', 'AdminController@index');
 Route::get('/email', 'EmailController@index');
+Route::get('/home', 'HomeController@index');
 
 Route::get('/', 'StudiowizardController@index');
 
-Route::auth();
+Route::group(['middleware' => ['web']],function () {
+	Route::auth();
+	Route::get('/', function () {
+		return view('studiowizard');
+	});
 
-Route::get('/home', 'HomeController@index');
+// 	//Route::get('/admin', 'AdminController@index');
+});
+
+// Route::get('/admin', ['middleware' => 'admin', function() {
+//     return view('admin');
+
+//     Route::get('/admin', 'AdminController@index');
+// }]);
+
+Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'],function(){
+    	Route::get('/admin', function() {
+    	// Auth::user()->type;
+        return view('admin');// can only access this if type == A
+    });
+
+});
+

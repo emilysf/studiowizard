@@ -15,7 +15,7 @@
     .box {
         border:2px solid #000059 !important;
     }
-    #subbtn {
+    .subbtn {
         margin-bottom: -14px;
     }
     .col-md-10 {
@@ -88,7 +88,7 @@
 
                 <div class="panel-body">
                     @foreach($tasks as $task)
-                       
+                       <div class="taskid-{{$task->id}}" style="display:none;">
                     {!! Form::model($task,array('route'=>['task.update',$task->id],'method'=>'PUT')) !!}
                      
                         <div class="form-group">
@@ -111,14 +111,14 @@
                             {!! Form::label('classLevel','Enter Class Level') !!}
                             {!! Form::text('classLevel',null,['class'=>'form-control']) !!}
                         </div>
-                        
-                </div>
+                    
               <div class="modal-footer">
                         <div class="form-group">
                             {!! Form::button('Update',['type'=>'submit','class'=>'btn btn-primary']) !!} 
                          </div>
-                       
+                        </div>
                     {!! Form::close() !!}
+                     </div>
                     @endforeach
               </div>
             </div>
@@ -180,7 +180,7 @@
 
                         {!! Form::open(array('route'=>['task.destroy',$task->id],'method'=>'DELETE')) !!}
 
-                            <button type="button" id="editbtn" class="btn btn-primary" data-toggle="modal" data-target="#editModal" value="{{$task->id}}">Edit</button>
+                            <button type="button" class="btn btn-primary editbtn" data-toggle="modal" data-target="#editModal" data-taskid="{{$task->id}}">Edit</button>
                             <!-- {{ link_to_route('task.edit','Edit',[$task->id],['class'=>'btn btn-primary']) }} -->
                             
                             |
@@ -203,4 +203,15 @@
         </div>
 
     </div>
+
+<script>
+   
+    $(".editbtn").on('click', function () {
+      var taskId = $(this).attr('data-taskid')
+        $(".taskid-"+taskId).show();
+    });
+
+</script>
 @endsection
+
+

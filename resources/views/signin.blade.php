@@ -33,21 +33,43 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
+            <form role="form" method="POST" action="{{ url('/login') }}">
+                        {{ csrf_field() }}
             <form role="form">
               <div class="box-body">
-                <div class="form-group">
-                  <label for="name">Email</label>
-                  <input type="text" name="signinEmail" class="form-control" id="signinEmail" placeholder="Enter Email">
+                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <label for="email">E-Mail Address</label>
+
+                    <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Enter E-Mail">
+                        @if ($errors->has('email'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('email') }}</strong>
+                            </span>
+                        @endif
+                    
                 </div>
-              	<div class="form-group">
-                  <label for="age">Password</label>
-                  <input type="password" name="signinPassword" class="form-control" id="signinPassword" placeholder="Enter Password">
+
+                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                    <label for="password">Password</label>
+
+                    <input type="password" id="password" class="form-control" name="password" placeholder="Enter Password">
+                      @if ($errors->has('password'))
+                          <span class="help-block">
+                              <strong>{{ $errors->first('password') }}</strong>
+                          </span>
+                      @endif
+                    
                 </div>
+              	
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <a href="/admin"><input type="submit" class="btn btn-primary"></a>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary">
+                      <i class="fa fa-btn fa-sign-in"></i> Login
+                  </button>
+                </div>
               </div>
             </form>
           </div>

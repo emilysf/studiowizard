@@ -63,6 +63,8 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
+        die('test');
+        printf('<pre>%s</pre>', print_r($task, 1));
        // $task = Task::where("id", "=", $id);
        return view('task.edit',compact('task'));
     }

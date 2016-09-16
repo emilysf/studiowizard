@@ -50,7 +50,7 @@
             <!-- Authentication Links -->
             @if (Auth::guest())
                 <li><a href="{{ url('/signin') }}" id="nav-links">Sign-In</a></li>
-                <li><a href="{{ url('/register') }}" id="nav-links">Register</a></li>
+                <li><a href="{{ url('/signup') }}" id="nav-links">Register</a></li>
             @else
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" id="nav-links" data-toggle="dropdown" role="button" aria-expanded="false">

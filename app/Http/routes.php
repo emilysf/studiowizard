@@ -23,6 +23,7 @@ Route::get('/instructors', 'InstructorController@index');
 Route::get('/admin', 'AdminController@index');
 Route::get('/email', 'EmailController@index');
 Route::get('/profile', 'ProfileController@index');
+Route::get('/students-instructors', 'Stud-InstrController@index');
 Route::get('/home', 'HomeController@index');
 
 // Route::get('profile', function() {

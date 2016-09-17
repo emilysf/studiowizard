@@ -11,6 +11,7 @@
   }
   .box {
     border:2px solid #000059 !important;
+    margin-top: 10%;
   }
   td, th {
     padding-left: 20px !important;
@@ -21,7 +22,7 @@
         <div class="col-xs-6">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Class Schedule</h3>
+              <h3 class="box-title">Instructors</h3>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -42,7 +43,21 @@
                   <td>27</td>
                   <td>Full Time/Studio Director</td>
                 </tr>
-                
+                <tr>
+                  <td>Meredith Grey</td>
+                  <td>23</td>
+                  <td>Part Time</td>
+                </tr>
+                <tr>
+                  <td>Ryan Kane</td>
+                  <td>25</td>
+                  <td>Full Time</td>
+                </tr>
+                <tr>
+                  <td>Sarah Johnson</td>
+                  <td>20</td>
+                  <td>Part Time</td>
+                </tr>
               </table>
             </div>
             <!-- /.box-body -->
@@ -52,7 +67,7 @@
         <div class="col-xs-6">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Class Schedule</h3>
+              <h3 class="box-title">Students</h3>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">

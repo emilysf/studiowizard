@@ -34,6 +34,12 @@
     margin-bottom: 5%;
     background-color: #fff;
   }
+  #news {
+    margin-left:-16px;
+  }
+  #events {
+    margin-left: 16px;
+  }
   h2 {
     color:#000059;
     text-align: center;
@@ -85,11 +91,11 @@
     <div class="row">
       <div class="col-md-6" id="news">
         <h2>Studio News</h2>
-          
+         
       </div>
       <div class="col-md-6" id="events">
         <h2>Local Events</h2>
-          
+         
       </div>
     </div>
   </div>

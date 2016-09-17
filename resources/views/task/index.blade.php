@@ -1,5 +1,5 @@
-@extends('layouts.app')
 @include('header')
+@extends('layouts.app')
 @include('nav-admin')
 @section('content')
 

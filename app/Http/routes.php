@@ -22,7 +22,13 @@ Route::get('/signin', 'SigninController@index');
 Route::get('/instructors', 'InstructorController@index');
 Route::get('/admin', 'AdminController@index');
 Route::get('/email', 'EmailController@index');
+Route::get('/profile', 'ProfileController@index');
 Route::get('/home', 'HomeController@index');
+
+Route::get('profile', function() {
+  return View::make('profile');
+});
+Route::post('profile/upload', 'ProfileController@upload');
 
 Route::get('/', 'StudiowizardController@index');
 
@@ -32,20 +38,6 @@ Route::group(['middleware' => ['web']],function () {
 		return view('studiowizard');
 	});
 
-// 	//Route::get('/admin', 'AdminController@index');
 });
 
-// Route::get('/admin', ['middleware' => 'admin', function() {
-//     return view('admin');
-
-//     Route::get('/admin', 'AdminController@index');
-// }]);
-
-Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'],function(){
-    	Route::get('/admin', function() {
-    	// Auth::user()->type;
-        return view('admin');// can only access this if type == A
-    });
-
-});
 

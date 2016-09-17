@@ -21,9 +21,10 @@
   #nav-drops {
     color:#000059;
   }
-  .navbar-brand {
-    background-color: #fff;
-    margin-top: -7px;
+  #logo1 {
+    width: 108px;
+    height: 48px;
+    margin-top: -14px;
   }
 
 </style>
@@ -36,7 +37,7 @@
     <nav class="navbar navbar-static-top">
       <div class="nav-container" id="nav-container">
         <div class="navbar-header">
-          <a href="/" class="navbar-brand"><img src= {{ asset ("/images/logo.jpg")}} style= "width:200px"></a>
+          <a href="/" class="navbar-brand"><img src= {{ asset ("/images/logo3.png")}} id="logo1"></a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
             <i class="fa fa-bars"></i>
           </button>
@@ -51,7 +52,19 @@
             @if (Auth::guest())
                 <li><a href="{{ url('/signin') }}" id="nav-links">Sign-In</a></li>
                 <li><a href="{{ url('/signup') }}" id="nav-links">Register</a></li>
-            @else
+            @elseif (Auth::user()->type !='B')
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" id="nav-links" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{{ url('/admin') }}" id="nav-drops">Admin</a></li>
+                        <li><a href="{{ url('/logout') }}" id="nav-drops">Logout</a></li>
+
+                    </ul>
+                </li>
+              @else
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" id="nav-links" data-toggle="dropdown" role="button" aria-expanded="false">
                         {{ Auth::user()->name }} <span class="caret"></span>
@@ -60,6 +73,7 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="{{ url('/profile') }}" id="nav-drops">Profile</a></li>
                         <li><a href="{{ url('/logout') }}" id="nav-drops">Logout</a></li>
+
                     </ul>
                 </li>
             @endif

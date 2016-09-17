@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Events;
+use App\Event;
 use App\Http\Requests\EventsRequest;
 
 class EventsController extends Controller
@@ -15,7 +15,7 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $events = Events::all();
+        $events = Event::all();
         return view('events.index',compact('events'));
     }
 
@@ -37,7 +37,7 @@ class EventsController extends Controller
      */
     public function store(EventsRequest $request)
     {
-        Events::create($request->all());
+        Event::create($request->all());
         return redirect()->route('events.index')->with('message','Event has been added successfully');
     }
 
@@ -58,9 +58,9 @@ class EventsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Events $events)
+    public function edit(Event $event)
     {
-       return view('events.edit',compact('events'));
+       return view('events.edit',compact('event'));
     }
 
     /**
@@ -70,9 +70,9 @@ class EventsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(EventsRequest $request, Events $events)
+    public function update(EventsRequest $request, Event $event)
     {
-        $events->update($request->all());
+        $event->update($request->all());
         return redirect()->route('events.index')->with('message','Event has been updated successfully');
     }
 
@@ -82,9 +82,9 @@ class EventsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Events $events)
+    public function destroy(Event $events)
     {
-        $events->delete();
+        $event->delete();
         return redirect()->route('events.index')->with('message','Event has been deleted successfully');
     }
 }

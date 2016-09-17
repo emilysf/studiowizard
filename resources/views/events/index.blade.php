@@ -1,5 +1,7 @@
 @include('header')
+@extends('layouts.app')
 @include('nav-admin')
+@section('content')
 
 <style>
     .col-xs-11 {
@@ -46,7 +48,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('eventDescription','Enter Event Description') !!}
-                            {!! Form::textarea('eventDescription',null,['class'=>'form-control']) !!}
+                            {!! Form::text('eventDescription',null,['class'=>'form-control']) !!}
                         </div>
                        
               </div>
@@ -66,7 +68,59 @@
       </div> 
       <!-- /.example-modal --> <!-- End create modal --> 
 
-      
+      <!-- Edit Modal -->
+      <div class="example-modal">
+        <div class="modal" id="editModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Edit Event</h4>
+              </div>
+              <div class="modal-body">
+
+                <div class="panel-body">
+                    @foreach($events as $event)
+                       <div class="eventid-{{$event->id}}" style="display:none;">
+                       
+                    {!! Form::model($event,array('route'=>['events.update',$event->id],'method'=>'PUT')) !!}
+                     
+                        <div class="form-group">
+                            {!! Form::label('eventTitle','Enter Event Title') !!}
+                            {!! Form::text('eventTitle',null,['class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('eventDate','Enter Event Date (mm/dd/yyyy)') !!}
+                            {!! Form::text('eventDate',null,['class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('eventTime','Enter Event Time') !!}
+                            {!! Form::text('eventTime',null,['class'=>'form-control']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('eventDescription','Enter Event Description') !!}
+                            {!! Form::text('eventDescription',null,['class'=>'form-control']) !!}
+                        </div>
+                        
+                
+              <div class="modal-footer">
+                <div class="form-group">
+                    {!! Form::button('Update',['type'=>'submit','class'=>'btn btn-primary']) !!} 
+                </div>
+              </div>
+                   {!! Form::close() !!}
+                    </div>
+                   @endforeach
+              </div>
+            </div>
+           <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>  
+         <!-- /.modal -->
+      </div> 
+      <!-- /.example-modal --> <!-- End edit modal --> 
 
 
       <div class="row">
@@ -104,19 +158,19 @@
                   <th>Event Description</th>
                   <th>Edit/Delete</th>
                 </tr>
-                    @foreach($events as $events)
+                    @foreach($events as $event)
                     <tr>
-                      <td>{{ $events->eventTitle }}</td>
-                      <td>{{ $events->eventDate }}</td>
-                      <td>{{ $events->eventTime }}</td>
-                      <td>{{ $events->eventDescription }}</td>
+                      <td>{{ $event->eventTitle }}</td>
+                      <td>{{ $event->eventDate }}</td>
+                      <td>{{ $event->eventTime }}</td>
+                      <td>{{ $event->eventDescription }}</td>
                       <td>
                      
 
-                        {!! Form::open(array('route'=>['events.destroy',$events->id],'method'=>'DELETE')) !!}
+                        {!! Form::open(array('route'=>['events.destroy',$event->id],'method'=>'DELETE')) !!}
 
-                        <!-- <button type="button" id="editbtn" class="btn btn-primary" data-toggle="modal" data-target="#editModal" value="{{$events->id}}">Edit</button> -->
-                            {{ link_to_route('events.edit','Edit',[$events->id],['class'=>'btn btn-primary']) }}
+                        <button type="button" class="btn btn-primary eventbtn" data-toggle="modal" data-target="#editModal" data-eventid="{{$event->id}}">Edit</button>
+                            <!-- {{ link_to_route('events.edit','Edit',[$event->id],['class'=>'btn btn-primary']) }} -->
 
                             |
 
@@ -140,3 +194,14 @@
         </div>
 
     </div>
+
+<script>
+   
+    $(".eventbtn").on('click', function () {
+      var eventId = $(this).attr('data-eventid')
+        $(".eventid-"+eventId).show();
+    });
+
+</script>
+
+@endsection

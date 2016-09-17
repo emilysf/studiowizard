@@ -10,7 +10,7 @@
 
                 <div class="panel-body">
                     
-                    {!! Form::model($events,array('route'=>['events.update',$events->id],'method'=>'PUT')) !!}
+                    {!! Form::model($event,array('route'=>['events.update',$event->id],'method'=>'PUT')) !!}
                         <div class="form-group">
                             {!! Form::label('eventTitle','Enter Event Title') !!}
                             {!! Form::text('eventTitle',null,['class'=>'form-control']) !!}
@@ -25,7 +25,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('eventDescription','Enter Event Description') !!}
-                            {!! Form::textarea('eventDescription',null,['class'=>'form-control']) !!}
+                            {!! Form::text('eventDescription',null,['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group">
                             {!! Form::button('Update',['type'=>'submit','class'=>'btn btn-primary']) !!} 
@@ -63,7 +63,7 @@
                 <div class="panel-body">
                     
                        
-                    {!! Form::model($events,array('route'=>['events.update',$events->id],'method'=>'PUT')) !!}
+                    {!! Form::model($event,array('route'=>['events.update',$event->id],'method'=>'PUT')) !!}
                      
                         <div class="form-group">
                             {!! Form::label('eventTitle','Enter Event Title') !!}
@@ -79,7 +79,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('eventDescription','Enter Event Description') !!}
-                            {!! Form::textarea('eventDescription',null,['class'=>'form-control']) !!}
+                            {!! Form::text('eventDescription',null,['class'=>'form-control']) !!}
                         </div>
                         
                 </div>

@@ -113,10 +113,10 @@
                         </div>
                     
               <div class="modal-footer">
-                        <div class="form-group">
-                            {!! Form::button('Update',['type'=>'submit','class'=>'btn btn-primary']) !!} 
-                         </div>
-                        </div>
+                <div class="form-group">
+                    {!! Form::button('Update',['type'=>'submit','class'=>'btn btn-primary']) !!} 
+                </div>
+              </div>
                     {!! Form::close() !!}
                      </div>
                     @endforeach

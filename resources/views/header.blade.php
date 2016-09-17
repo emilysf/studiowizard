@@ -35,6 +35,9 @@
     .wrapper {
       background-color: #d3d3d3;
     }
+    .btn-primary {
+      background-image:-webkit-linear-gradient(top,#000059 0,#265a88 100%) !important;
+    }
   </style>
 
 </head>

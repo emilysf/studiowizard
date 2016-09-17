@@ -22,9 +22,13 @@
     color:#000059;
   }
   #logo1 {
+    background-color: #fff;
     width: 108px;
     height: 48px;
     margin-top: -14px;
+  }
+  .navbar-brand {
+    background-color: #fff;
   }
 
 </style>

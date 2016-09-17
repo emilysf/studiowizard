@@ -95,7 +95,7 @@
       </div>
       <div class="col-md-6" id="events">
         <h2>Local Events</h2>
-         
+         <!--  -->
       </div>
     </div>
   </div>

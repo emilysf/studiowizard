@@ -15,5 +15,6 @@
     <div class="container">
       <strong>Copyright &copy; 2016 <a href="/">Studio Wizard</a>.</strong> 
     </div>
+
     <!-- /.container -->
 </footer>

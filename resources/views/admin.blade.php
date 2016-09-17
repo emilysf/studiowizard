@@ -81,6 +81,7 @@
               @if (Auth::guest())
 
               @else
+              	@foreach {{ $users as $user }}
                 <tr>
                   <th>Student Name</th>
                   <th>Student Age</th>
@@ -93,7 +94,7 @@
                   <td>{{ Auth::user()->phonenumber }}</td>
                   <td>{{ Auth::user()->email }}</td>
                 </tr>
-				
+				@endforeach
 			@endif
                 
               </table>

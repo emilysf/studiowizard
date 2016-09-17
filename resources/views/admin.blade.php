@@ -78,16 +78,23 @@
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
+              @if (Auth::guest())
+
+              @else
                 <tr>
-                  <th>Instructor Name</th>
-                  <th>Instructor Age</th>
-                  <th>Instructor Status</th>
+                  <th>Student Name</th>
+                  <th>Student Age</th>
+                  <th>Student Number</th>
+                  <th>Student Email</th>
                 </tr>
              	<tr>
-                  <td>Mary Ann</td>
-                  <td>27</td>
-                  <td>Full Time/Studio Director</td>
+             	  <td>{{ Auth::user()->name }}</td>
+                  <td>{{ Auth::user()->age }}</td>
+                  <td>{{ Auth::user()->phonenumber }}</td>
+                  <td>{{ Auth::user()->email }}</td>
                 </tr>
+				
+			@endif
                 
               </table>
             </div>

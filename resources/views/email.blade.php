@@ -1,5 +1,4 @@
 @include ('nav-admin')
-@include ('header')
 
 <style>
   .col-md-6 {

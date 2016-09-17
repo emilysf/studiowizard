@@ -60,7 +60,7 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('news.edit',compact('new'));
     }
 
     /**
@@ -70,9 +70,9 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(NewsRequest $request, News $news)
+    public function update(NewsRequest $request, News $new)
     {
-        $news->update($request->all());
+        $new->update($request->all());
         return redirect()->route('news.index')->with('message','News has been updated successfully');
     }
 
@@ -82,9 +82,9 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(News $news)
+    public function destroy(News $new)
     {
-        $news->delete();
+        $new->delete();
         return redirect()->route('news.index')->with('message','News has been deleted successfully');
     }
 }

@@ -17,12 +17,13 @@ use Illuminate\Http\Request;
 class ProfileController extends Controller
 {
     public function index(Task $tasks) {
-    	// $tasks = Task::all();
-    	// return view('schedule', compact('tasks'));
+    	$tasks = Task::all();
+    	//print_r($tasks);die();
+    	return view('profile', compact('tasks'));
 
-    	$tasks = DB::table('tasks')->get();
+    	// $tasks = DB::table('tasks')->get();
 
-        return view('profile', ['tasks' => $tasks]);
+     //    return view('profile', ['tasks' => $tasks]);
 
          
 

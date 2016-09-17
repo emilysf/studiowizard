@@ -66,7 +66,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="/students-instructors" id="nav-links" style="margin-left:76px">Students/Instructors</a></li>
+            <li><a href="/students-instructors" id="nav-links" style="margin-left:25px">Students/Instructors</a></li>
             <li><a href="/news" id="nav-links">Add News</a></li>
             <li><a href="/events" id="nav-links">Add Events</a></li>
             <li><a href="/task" id="nav-links">Add Class</a></li>

@@ -89,15 +89,16 @@
                 <tr>
                   <th>News Title</th>
                   <th>News Description</th>
+                  <th>Delete News Entry</th>
                 </tr>
-                @foreach($news as $news)
+                @foreach($news as $new)
                     <tr>
-                      <td>{{ $news->newsTitle }}</td>
-                      <td>{{ $news->newsDescription }}</td>
+                      <td>{{ $new->newsTitle }}</td>
+                      <td>{{ $new->newsDescription }}</td>
                       <td>
                      
 
-                        {!! Form::open(array('route'=>['news.destroy',$news->id],'method'=>'DELETE')) !!}
+                        {!! Form::open(array('route'=>['news.destroy',$new->id],'method'=>'DELETE')) !!}
 
                             {!! Form::button('Delete',['class'=>'btn btn-danger','type'=>'submit']) !!}
                         {!! Form::close() !!}

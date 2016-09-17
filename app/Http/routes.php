@@ -25,18 +25,18 @@ Route::get('/email', 'EmailController@index');
 Route::get('/profile', 'ProfileController@index');
 Route::get('/home', 'HomeController@index');
 
-Route::get('profile', function() {
-  return View::make('profile');
-});
-Route::post('profile/upload', 'ProfileController@upload');
+// Route::get('profile', function() {
+//   return View::make('profile');
+// });
+//Route::post('profile/upload', 'ProfileController@upload');
 
 Route::get('/', 'StudiowizardController@index');
 
 Route::group(['middleware' => ['web']],function () {
 	Route::auth();
-	Route::get('/', function () {
-		return view('studiowizard');
-	});
+	// Route::get('/', function () {
+	// 	return view('studiowizard');
+	// });
 
 });
 

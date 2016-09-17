@@ -15,7 +15,8 @@
     color:#fff;
   }
   .col-md-6 {
-  	margin-left:10%;
+  	margin-left:24%;
+  	margin-top:8%;
   }
 </style>
 
@@ -28,8 +29,7 @@
               <h3 class="box-title">Quick Email</h3>
               <!-- tools box -->
               <div class="pull-right box-tools">
-                <button type="button" class="btn btn-info btn-sm" data-widget="remove" data-toggle="tooltip" title="Remove">
-                  <i class="fa fa-times"></i></button>
+                
               </div>
               <!-- /. tools -->
             </div>

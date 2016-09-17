@@ -141,7 +141,7 @@
           <div class="box">
             <div class="box-header">
               <h3 class="box-title">Add Event</h3>
-              <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createModal">Add Event</button>
+              <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#createModal">Add Event</button>
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
                   
@@ -174,7 +174,7 @@
 
                             |
 
-                            {!! Form::button('Delete',['class'=>'btn btn-danger','type'=>'submit']) !!}
+                            {!! Form::button('Delete',['class'=>'btn btn-secondary','type'=>'submit']) !!}
                         {!! Form::close() !!}
 
                       </td>

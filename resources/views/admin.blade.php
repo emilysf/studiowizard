@@ -78,22 +78,43 @@
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
-              
-              	@foreach($users as $user)
+              @if (Auth::guest())
+
+              @else
+
                 <tr>
                   <th>Student Name</th>
                   <th>Student Age</th>
                   <th>Student Number</th>
                   <th>Student Email</th>
                 </tr>
-             	<tr>
-             	  <td>{{ $user->name }}</td>
-                  <td>{{ $user->age }}</td>
-                  <td>{{ $user->phonenumber }}</td>
-                  <td>{{ $user->email }}</td>
+                <tr>
+             	  <td>Emily Frain</td>
+                  <td>22</td>
+                  <td>321-555-5555</td>
+                  <td>emilysfrazin@gmail.com</td>
                 </tr>
-				@endforeach
-			
+             	<tr>
+             	  <td>{{ Auth::user()->name }}</td>
+                  <td>{{ Auth::user()->age }}</td>
+                  <td>{{ Auth::user()->phonenumber }}</td>
+                  <td>{{ Auth::user()->email }}</td>
+                </tr>
+                <tr>
+             	  <td>Laurie Ann</td>
+                  <td>15</td>
+                  <td>234-342-3423</td>
+                  <td>laurie@ann.com</td>
+                </tr>
+                <tr>
+             	  <td>Jenn Hernandez</td>
+                  <td>17</td>
+                  <td>555-555-5555</td>
+                  <td>jenn@hernandez.com</td>
+                </tr>
+
+				
+			@endif
                 
               </table>
             </div>

@@ -30,6 +30,11 @@
   		width:auto;
   		background-color: #000059 !important;
   	}
+  	.profinfo {
+  		border:2px solid #000059;
+  		background-color: #fff;
+  		
+  	}
 </style>
 
 <div class="container profile">
@@ -53,11 +58,12 @@
 		    </div>
 			
 		@endif
-			<div class="col-md-6">
+			<div class="col-md-6 profinfo">
+
 				@if (Auth::guest())
 
 			@else
-				
+				<h2>Student Information</h2>
 				<h4>Age: {{ Auth::user()->age }}</h4>
 				<h4>Phone Number: {{ Auth::user()->phonenumber }}</h4>
 				<h4>Email: {{ Auth::user()->email }}</h4>

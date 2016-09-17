@@ -8,5 +8,7 @@ use App\Http\Requests;
 
 class Stud-InstrController extends Controller
 {
-    return view('stud-instr');
+	public function index(){
+    	return view('stud-instr');
+	}
 }

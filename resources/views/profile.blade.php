@@ -33,7 +33,7 @@
   	.profinfo {
   		border:2px solid #000059;
   		background-color: #fff;
-  		
+
   	}
 </style>
 
@@ -72,7 +72,8 @@
 			</div>
 
 		</div>
-		<br>
+		</div>
+		<div class="container">
 		<div class="row">
 	      <div class="col-xs-12">
 				
@@ -117,6 +118,7 @@
 	          <!-- /.box -->
 	     
 	  		</div>
+		  </div>
 		  </div>
 		</div>
 

@@ -78,9 +78,7 @@
             <!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
               <table class="table table-hover">
-              @if (Auth::guest())
-
-              @else
+              
               	@foreach($users as $user)
                 <tr>
                   <th>Student Name</th>
@@ -89,13 +87,13 @@
                   <th>Student Email</th>
                 </tr>
              	<tr>
-             	  <td>{{ Auth::user()->name }}</td>
-                  <td>{{ Auth::user()->age }}</td>
-                  <td>{{ Auth::user()->phonenumber }}</td>
-                  <td>{{ Auth::user()->email }}</td>
+             	  <td>{{ $user->name }}</td>
+                  <td>{{ $user->age }}</td>
+                  <td>{{ $user->phonenumber }}</td>
+                  <td>{{ $user->email }}</td>
                 </tr>
 				@endforeach
-			@endif
+			
                 
               </table>
             </div>

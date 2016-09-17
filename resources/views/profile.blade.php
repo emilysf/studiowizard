@@ -53,15 +53,8 @@
 		    </div>
 			
 		@endif
-			
-
-		</div>
-		<br>
-		<div class="row">
-	      <div class="col-xs-12">
-				
-
-    		 <!-- @if (Auth::guest())
+			<div class="col-md-6">
+				@if (Auth::guest())
 
 			@else
 				
@@ -70,7 +63,15 @@
 				<h4>Email: {{ Auth::user()->email }}</h4>
 				
 			@endif
-			<br> -->
+			</div>
+
+		</div>
+		<br>
+		<div class="row">
+	      <div class="col-xs-12">
+				
+    		 
+			<br>
 	          <div class="box">
 	            <div class="box-header">
 	              <h3 class="box-title">Class Schedule</h3>

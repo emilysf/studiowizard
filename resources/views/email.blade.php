@@ -1,13 +1,6 @@
 @include ('nav-admin')
 
 <style>
-  .col-md-6 {
-    margin-top: 5%;
-    margin-left: 25%;
-  }
-  * {
-    background-color: #d3d3d3;
-  }
   .box-body, .box-header, .box-title, .form-group, label{
     background-color: #fff;
   }
@@ -20,6 +13,9 @@
   .btn-primary {
     background-color: #000059 !important;
     color:#fff;
+  }
+  .col-md-6 {
+  	margin-left:10%;
   }
 </style>
 

@@ -1,4 +1,29 @@
 @include ('nav-admin')
+@include ('header')
+
+<style>
+  .col-md-6 {
+    margin-top: 5%;
+    margin-left: 25%;
+  }
+  * {
+    background-color: #d3d3d3;
+  }
+  .box-body, .box-header, .box-title, .form-group, label{
+    background-color: #fff;
+  }
+  form{
+    border-radius:25px;
+  }
+  .box {
+    border:2px solid #000059 !important;
+  }
+  .btn-primary {
+    background-color: #000059 !important;
+    color:#fff;
+  }
+</style>
+
 <div class="col-md-6">
 <!-- quick email widget -->
           <div class="box box-info">

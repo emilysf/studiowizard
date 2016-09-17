@@ -33,7 +33,7 @@
   	.profinfo {
   		border:2px solid #000059;
   		background-color: #fff;
-
+  		margin-top: 10%;
   	}
 </style>
 
@@ -47,7 +47,7 @@
 			  
 			  <div class="row">
 			    <!-- left column -->
-			    <div class="col-md-4 col-sm-6 col-xs-12">
+			    <div class="col-md-4 col-sm-6 col-xs-12" style="margin-left: 7%">
 			    <h2>{{ Auth::user()->name }}</h2>
 			      
 			        <img src= {{ asset("/images/profilepic.jpeg")}} class="avatar img-circle img-thumbnail" alt="avatar">
